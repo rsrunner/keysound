@@ -5,7 +5,6 @@
 #include <cstdio>
 #include <ctime>
 #include <mmsystem.h>
-//#include <dsound.h>
 
 #include "dsfuncs.h"
 
@@ -50,7 +49,6 @@ int main(int argc, char* argv[]){
     std::srand(std::time(NULL));
     hFind = FindFirstFile("sounds\\*.*", &ffd);
 
-    //MessageBox(NULL, SOUNDS[NUMSOUNDS], "poop fart", MB_OK);
     do
     {
         if(ffd.cFileName != "." && ffd.cFileName != ".." && (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 0)
@@ -70,10 +68,6 @@ int main(int argc, char* argv[]){
 
     keyhook = SetWindowsHookEx(WH_KEYBOARD_LL, handlekey, NULL, 0);
     keyhook = SetWindowsHookEx(WH_MOUSE_LL, handlemouse, NULL, 0);
-
-    /*char stuff[255];
-    std::sprintf(stuff, "Loaded %i files", SOUNDS.size());
-    MessageBox(NULL, stuff, "Wile E.'s Keysound", MB_OK);*/
 
     while(GetMessage(&msg, NULL, 0, 0)){
         TranslateMessage(&msg);
