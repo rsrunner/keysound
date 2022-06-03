@@ -67,7 +67,7 @@ int main(int argc, char* argv[]){
     }
 
     keyhook = SetWindowsHookEx(WH_KEYBOARD_LL, handlekey, NULL, 0);
-    keyhook = SetWindowsHookEx(WH_MOUSE_LL, handlemouse, NULL, 0);
+    mousehook = SetWindowsHookEx(WH_MOUSE_LL, handlemouse, NULL, 0);
 
     while(GetMessage(&msg, NULL, 0, 0)){
         TranslateMessage(&msg);
